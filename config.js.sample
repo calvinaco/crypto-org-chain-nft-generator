@@ -1,0 +1,47 @@
+const DENOM_CONFIGS = [
+    {
+        mnemonic: "used remind news nature speak actor about gift clinic board scale sleep grief other moon air material improve toddler close term add decade bracket",
+        address: "tcro16u9ulnfhj8efp3h9rq950gh32knzuhtful4k42",
+        transferTo: "tcro15rk857mth86mkv6m3vlar96wrlqtx0l2wu3tvu", // optional
+        drop: "Test",
+        image: "https://d2vi0z68k5oxnr.cloudfront.net/d0ac7457-1817-43a8-a259-538ebe37786d/original.jpeg",
+        burn: false,
+    },
+    {
+        mnemonic: "carry east exhibit palace damp puzzle spray nerve diary coach phone vibrant visual almost dish police upper term board either lesson attitude come win",
+        address: "tcro1c3pm3w7pk3pf40pvq5nv5g6uwjnxetd7y7j0yq",
+        drop: "Rain",
+        image: "https://crypto.org/static/vision-bg-lg.aa20baef.jpg",
+        burn: false,
+    },
+];
+const TOTAL_NFT = 350000;
+// AYSNC is not recommended
+// To use SYNC, please make sure you are using the same node to broadcast transaction
+// COMMIT is the safest, but also the slowest
+const BROADCAST_MODE = "COMMIT"; // ASYNC|SYNC|COMMIT
+const NETWORK = {
+    // defaultNodeUrl: 'https://testnet-croeseid-3.crypto.org',
+    defaultNodeUrl: 'http://127.0.0.1',
+    chainId: 'testnet-croeseid-3',
+    addressPrefix: 'tcro',
+    validatorAddressPrefix: 'tcrocncl',
+    validatorPubKeyPrefix: 'tcrocnclconspub',
+    coin: {
+        baseDenom: 'basetcro',
+        croDenom: 'tcro',
+    },
+    bip44Path: {
+        coinType: 1,
+        account: 0,
+    },
+    // rpcUrl: 'https://testnet-croeseid-3.crypto.org:26657',
+    rpcUrl: 'http://127.0.0.1:26657',
+};
+
+module.exports = {
+    DENOM_CONFIGS,
+    TOTAL_NFT,
+    BROADCAST_MODE,
+    NETWORK,
+}
