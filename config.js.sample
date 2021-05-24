@@ -1,3 +1,4 @@
+// NEVER USE THESE MNEMONICS FOR STORING REAL FUNDS 
 const DENOM_CONFIGS = [
     {
         mnemonic: "used remind news nature speak actor about gift clinic board scale sleep grief other moon air material improve toddler close term add decade bracket",
