@@ -1,4 +1,4 @@
-# NFT auto generation tool
+# Crypto.org Chain NFT generator
 
 ## WARNING
 This tool will attempt to create NFTs on Crypto.org Chain. There is no guarantee for the correctness of this program. Use it at your own risk.
