@@ -3,6 +3,18 @@
 ## WARNING
 This tool will attempt to create NFTs on Crypto.org Chain. There is no guarantee for the correctness of this program. Use it at your own risk.
 
+## Description
+
+According to the configuration, the tool will try to perform a series of actions including
+
+- Issue Denom*
+- Mint NFT*
+- Edit NFT*
+- Burn NFT (`burn`)
+- Transfer NFT (`transferTo`)
+
+Steps marked with * will always be executed.
+
 ## Pre-requisite
 
 - Node.js
