@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const { default: axios } = require("axios");
 const randomWords = require('random-words');
 const txtgen = require("txtgen"); 
-const { DENOM_CONFIGS, TOTAL_NFT, BROADCAST_MODE, NETWORK } = require("./config");
+const { DENOM_CONFIGS, TOTAL_NFT, BROADCAST_MODE, MAX_BROADCAST_IN_PROGRESS, NETWORK } = require("./config");
 
 (async() => {
     const cro = CroSDK({
@@ -91,7 +91,7 @@ const { DENOM_CONFIGS, TOTAL_NFT, BROADCAST_MODE, NETWORK } = require("./config"
 
     for (let i=0, l=DENOM_CONFIGS.length; i<l; i+=1) {
         const config = DENOM_CONFIGS[i];
-        const keyPair = Secp256k1KeyPair.fromPrivKey(HDKey.fromMnemonic(config.mnemonic).derivePrivKey("m/44'/1'/0'/0/0"));
+        const keyPair = Secp256k1KeyPair.fromPrivKey(HDKey.fromMnemonic(config.mnemonic).derivePrivKey(`m/44'/${NETWORK.bip44Path.coinType}'/0'/0/0`));
         const address = new cro.Address(keyPair.getPubKey()).account();
         const account = await client.getAccount(address);
         if (account === null) {
@@ -167,7 +167,7 @@ const { DENOM_CONFIGS, TOTAL_NFT, BROADCAST_MODE, NETWORK } = require("./config"
                             process.exit(1);
                     }
                     broadcastCount += 1;
-                    if (broadcastCount === 500) {
+                    if (broadcastCount === MAX_BROADCAST_IN_PROGRESS) {
                         // take a break
                         await new Promise(resolve => setTimeout(resolve, 5000));
                         broadcastCount = 0;
